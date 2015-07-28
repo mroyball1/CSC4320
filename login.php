@@ -28,7 +28,6 @@
 					//redirect back to menu.php
 					$passUser = $row["USERNAME"];
 					header("Location: menu.php?username=$passUser" );
-					//header("Location: menu.php");
 					exit;
 				} else {
 					//password doesn't match

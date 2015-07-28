@@ -51,7 +51,10 @@ constraint pk_payment primary key (CUSTOMERNUMBER, CARDINDEX)
 
 
 insert into USER values("1", "Merrick", "123 Murica Dr", "mroyball1", "mroyball1");
+select NAME, BILLTO, USERNAME, PASSWORD from USER where USERNAME like 'mroyball1';
+update USER set USERNAME = 'mroyball2' where USERNAME like 'mroyball1';
 
-insert into INVENTORYITEM values("itemnumber", "name", "unitprice", "qtyonhand");
 insert into INVENTORYITEM values("1", "Intel Core i7-4790K", "$339", "4");
 insert into INVENTORYITEM values("2", "Intel Core i5-4690K", "$239", "7");
+insert into INVENTORYITEM values("3", "AMD FX-6300", "$109", "2");
+insert into INVENTORYITEM values("4", "AMD FX-8350", "$174", "5");
