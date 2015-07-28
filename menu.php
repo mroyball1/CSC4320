@@ -1,3 +1,13 @@
+<?php
+	//Page Setup
+	if(isset($_GET['username'])) {
+		$username = "Welcome ".$_GET['username'];
+	} else {
+		$username = "";
+	}
+	//End Page Setup
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,6 +18,7 @@
 	<body>
 		<div id="header">
 			<p> Title Area </p>
+			<p> <?php echo $username; ?> </p>
 			<form>
 				<input type="hidden" name="username">
 				<input type="hidden" name="loggedIn">

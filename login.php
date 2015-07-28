@@ -17,27 +17,31 @@
 		$getUsernames = "select USERNAME, PASSWORD from USER;";
 		$result = mysql_query($getUsernames);
 		
-			while ($row = mysqli_fetch_assoc($result)) {
-				//check each item in the list if it matches with the provided username
-				if ($row["USERNAME"] == $_POST["username"]) {
-					//if so check the password
-					if ($row["PASSWORD"] == $_POST["password"]) {
-						//go to home page... how?
-						$errorMessageType = "text";
-						$errorMessageValue = "success";
-					} else {
-						//password doesn't match
-						$errorMessageType = "text";
-						$errorMessageValue = "password incorrect";
-					}
+		while ($row = mysql_fetch_assoc($result)) {
+			//check each item in the list if it matches with the provided username
+			if ($row["USERNAME"] == $_POST["username"]) {
+				//if so check the password
+				if ($row["PASSWORD"] == $_POST["password"]) {
+					//go to home page... how?
+					//$errorMessageType = "text";
+					//$errorMessageValue = "success";
+					//redirect back to menu.php
+					$passUser = $row["USERNAME"];
+					header("Location: menu.php?username=$passUser" );
+					//header("Location: menu.php");
+					exit;
 				} else {
-					//no match
+					//password doesn't match
 					$errorMessageType = "text";
-					$errorMessageValue = "user not found";
-					
+					$errorMessageValue = "password incorrect";
 				}
+			} else {
+				//no match
+				$errorMessageType = "text";
+				$errorMessageValue = "user not found";
+				
 			}
-		
+		}		
 	}
 
 ?>
@@ -75,7 +79,7 @@
 					</tr>
 				</table>
 				<br>
-				<input type="<?php echo $errorMessageType; ?>" name="errorMessage" value="<?php echo $errorMessageValue; ?>">
+				<input type="<?php echo $errorMessageType; ?>" name="errorMessage" value="<?php echo $errorMessageValue; ?>" readonly="true">
 				<br>
 				<input type="submit" value="Submit">
 			</form>
