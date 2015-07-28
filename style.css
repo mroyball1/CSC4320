@@ -1,0 +1,19 @@
+#header{
+	background:#bbbbbb;
+	height:100px;
+}
+
+#nav{
+	background:#e6e6e6;
+	float:left;
+	width:200px;
+	height:10000px; /* Obviously this needs to change */
+}
+
+#content{
+	background:#aaaaaa;
+}
+
+html, body {
+	min-height:100%;
+}
