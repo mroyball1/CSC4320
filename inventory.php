@@ -20,7 +20,7 @@
 		
 		<div id="nav">
 			<p> Navigation Bar </p>
-
+			<a href="menu.php"> Home </a>
 		</div>
 		
 		<div id="content">
@@ -37,7 +37,7 @@
 				$result = mysql_query($query);
 				while ($row = mysql_fetch_assoc($result)) {
 					echo "<tr>";
-					echo "<td>".$row["NAME"]."</td>";
+					echo "<td><a href='addToCart.php?productName=\"".$row["NAME"]."\"'>".$row["NAME"]."</a></td>";
 					echo "<td>".$row["UNITPRICE"]."</td>";
 					echo "<td>".$row["QTYONHAND"]."</td>";
 					echo "</tr>";
