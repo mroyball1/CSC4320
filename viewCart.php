@@ -28,33 +28,30 @@
 		
 		<div id="content">
 			<p> Page Content </p>
-			
-			<table>
-				<tr>
-					<th> Cart List</th>
-					<th> Price </th>
-				</tr>
 				
 				<?php 
-				session_start();
-				include_once("config.php")
+				require_once('../mysqli_connect.php');// connection to database
 				
-				if(isset($_SESSION['order'])){
-					$_SESSION['order'] = array();
+				//creating query for database
+				$query = "SELECT NAME, UNITPRICE, QTYONHAND, ITEMNUMBER";
+				
+				//getting a response from the database and the query 
+				$response = @mysqli_query($db, $query);
+				
+				//check if query executed
+				if($response){
+					echo '<table align="left"
+					cellspacing="5" cellpadding="8"
+					
+					<tr><td align="left"><b> NAME</b><td>//printing headers on the table
+					<td align="left"><b> UNITPRICE</b><td>
+					<td align="left"><b> QYTONHAND</b><td>
+					<td align="left"><b> ITEMNUMBER</b><td>
 					
 				}
 				
 				
-				
-				if(isset($_GET['order'])){
-					$order = array();
-					$total = 0;
-					
-				}
-				
-				
-				
-			</table>
+		
 			
 			
 		
