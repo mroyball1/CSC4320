@@ -20,7 +20,7 @@
 		
 		<div id="nav">
 			<p> Navigation Bar </p>
-			<a href="menu.php"> Home </a>
+
 		</div>
 		
 		<div id="content">

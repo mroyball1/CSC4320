@@ -1,7 +1,7 @@
 <?php
 	//Page Setup
 	if(isset($_GET['username'])) {
-		$username = $_GET['username'];
+		$username = "Welcome ".$_GET['username'];
 	} else {
 		$username = "";
 	}
@@ -18,7 +18,7 @@
 	<body>
 		<div id="header">
 			<p> Title Area </p>
-			<p> <?php echo "Welcome ".$username; ?> </p>
+			<p> <?php echo $username; ?> </p>
 			<form>
 				<input type="hidden" name="username">
 				<input type="hidden" name="loggedIn">
@@ -29,7 +29,7 @@
 			<p> Navigation Bar </p> <br>
 			<a href="inventory.php"> Search Inventory </a> <br><br>
 			<a href="login.php">Customer Log In </a> <br><br>
-			<a href="profile.php?username=<?php echo $username ?>"> Customer Profile </a>
+			<a href="profile.php"> Customer Profile </a>
 		</div>
 		
 		<div id="content">
