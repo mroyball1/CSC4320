@@ -1,0 +1,53 @@
+drop table if exists ORDERS;
+drop table if exists LINEITEM;
+drop table if exists INVENTORYITEM;
+drop table if exists USER;
+drop table if exists PAYMENT;
+
+create table ORDERS (
+ORDERNUMBER varchar(20),
+TOTALPRICE varchar(5),
+CUSTOMERNUMBER varchar(20),
+PAYMENT varchar(2),
+SHIPTO varchar(40),
+constraint pk_orders primary key (ORDERNUMBER)
+);
+
+create table LINEITEM (
+ORDERNUMBER varchar(20),
+ITEMNUMBER varchar(20),
+QTYORDERED varchar(3),
+LINEPRICE varchar(5),
+constraint pk_lineitem primary key (ORDERNUMBER, ITEMNUMBER)
+);
+
+create table INVENTORYITEM(
+ITEMNUMBER varchar(20),
+NAME varchar(20),
+UNITPRICE varchar(5),
+QTYONHAND varchar(4),
+constraint pk_inventoryitem primary key (ITEMNUMBER)
+);
+
+create table USER(
+CUSTOMERNUMBER varchar(20),
+NAME varchar(20),
+BILLTO varchar(40),
+USERNAME varchar(20),
+PASSWORD varchar(20),
+constraint pk_user primary key (CUSTOMERNUMBER)
+);
+
+create table PAYMENT (
+CUSTOMERNUMBER varchar(20),
+CARDINDEX varchar(2),
+NAMEONCARD varchar(20),
+CCNUMBER varchar(16),
+CCV varchar(4),
+ZIP varchar(5),
+constraint pk_payment primary key (CUSTOMERNUMBER, CARDINDEX)
+);
+
+
+
+insert into USER values("1", "Merrick", "123 Murica Dr", "mroyball1", "mroyball1");
