@@ -10,6 +10,7 @@ TOTALPRICE varchar(5),
 CUSTOMERNUMBER varchar(20),
 PAYMENT varchar(2),
 SHIPTO varchar(40),
+STATUS varchar(10),
 constraint pk_orders primary key (ORDERNUMBER)
 );
 

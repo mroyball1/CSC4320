@@ -1,6 +1,6 @@
 <?php
 
-	$productName = $_GET["productName"];
+	$productNum = $_GET["productName"];
 
 	$db = "mroyball1";
 	$conn = mysql_connect("localhost", "mroyball1", "mroyball1") or die("cannot connect");
@@ -30,12 +30,12 @@
 		
 		<div id="content">
 			<p> Page Content </p>
-			<form>
+			<form action="viewCart.php" method="POST">
 				<table>
 					<?php
-						$query = "select * from INVENTORYITEM where NAME like '".$productName."';";
+						$query = "select * from INVENTORYITEM where ITEMNUMBER like ".$productNum.";";
 						$result = mysql_query($query);
-						while ($row = mysql_fetch_assoc($result)) {
+							while ($row = mysql_fetch_assoc($result)) {
 							echo "<tr>";
 							echo "<td>Product Number:</td> <td>".$row["ITEMNUMBER"]."</td>";
 							echo "<td>Product Name:</td> <td>".$row["NAME"]."</td>";
@@ -45,7 +45,11 @@
 						}
 					
 					?>
+					
 				</table>
+				<input type="number" min="1" max="<?php echo $row["QTYONHAND"]; ?>" value="1" name="qtyOrdered">
+				<input type="hidden" name="itemNumber" value="<?php echo $productNum; ?>">
+				<input type="submit" value="Add to Cart">
 			</form>
 		</div>
 	</body>
