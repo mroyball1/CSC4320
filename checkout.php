@@ -1,11 +1,14 @@
 <?php
 
+    session_start();
+include_once("includes/functions.php");
+
 	$orderNumber = $_POST["orderNumber"];
 	$customerNumber = $_POST["cuNumber"];
-	
-	$db = "mroyball1";
-	$conn = mysql_connect("localhost", "mroyball1", "mroyball1") or die("cannot connect");
-	mysql_select_db($db) or die("cannot select DB");
+
+    //database connection
+    include_once("includes/connection.php");
+
 
 	$query = "select sum(LINEPRICE) from LINEITEM where ORDERNUMBER = ".$orderNumber.";";
 	$result = mysql_query($query);

@@ -1,5 +1,8 @@
 <?php
 
+    session_start();
+include_once("includes/functions.php");
+
 	//need a check to see if a username is passed, otherwise redirect to login.php
 	/*
 	if($_GET['username'] == "") {
@@ -11,9 +14,8 @@
 		$passedUser = $_GET['username'];
 	}
 
-	$db = "mroyball1";
-	$conn = mysql_connect("localhost", "mroyball1", "mroyball1") or die("cannot connect");
-	mysql_select_db($db) or die("cannot select DB");
+    //database connection
+    include_once("includes/connection.php");
 	
 	//update database if called from a previous instance of profile.php
 	if(isset($_POST["newUsername"])) {

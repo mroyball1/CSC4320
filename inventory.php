@@ -1,8 +1,10 @@
 <?php
 
-	$db = "mroyball1";
-	$conn = mysql_connect("localhost", "mroyball1", "mroyball1") or die("cannot connect");
-	mysql_select_db($db) or die("cannot select DB");
+    session_start();
+    include_once("includes/functions.php");
+
+    //database connection
+    include_once("includes/connection.php");
 	
 ?>
 

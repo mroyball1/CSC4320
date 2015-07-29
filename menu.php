@@ -1,4 +1,8 @@
 <?php
+
+    session_start();
+    include_once("includes/functions.php");
+
 	//Page Setup
 	if(isset($_GET['username'])) {
 		$username = $_GET['username'];
@@ -6,10 +10,9 @@
 		$username = "";
 	}
 	//End Page Setup
-	
-	$db = "mroyball1";
-	$conn = mysql_connect("localhost", "mroyball1", "mroyball1") or die("cannot connect");
-	mysql_select_db($db) or die("cannot select DB");
+
+    //database connection
+    include_once("includes/connection.php");
 	
 	//CHECK FOR PAYMENT AND CHANGE DATABASE
 	if(isset($_POST["CCnumber"])) {

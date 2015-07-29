@@ -1,14 +1,24 @@
 <?php
+
+    session_start();
+    include_once("includes/functions.php");
+
+    if (isset($_SESSION['username'])) {
+        redirectTo("profile.php");
+    }
+
 	//Page setup
 	$errorMessageType = "hidden";
 	$errorMessageValue = "";
 	//End page setup
 
-	$db = "mroyball1";
+	//$db = "mroyball1";
+    //database connection
+    include_once("includes/connection.php");
 	
 	if(isset($_POST["username"])) {
-		$conn = mysql_connect("localhost", "mroyball1", "mroyball1") or die("cannot connect");
-		mysql_select_db($db) or die("cannot select DB");
+		//$conn = mysql_connect("localhost", "mroyball1", "mroyball1") or die("cannot connect");
+		//mysql_select_db($db) or die("cannot select DB");
 		
 		//validate that the given username/password is in our database
 		//if wrong go back to this page otherwise go back to menu.php
@@ -27,6 +37,7 @@
 					//$errorMessageValue = "success";
 					//redirect back to menu.php
 					$passUser = $row["USERNAME"];
+                    $_SESSION['username'] = $passUser;
 					header("Location: menu.php?username=$passUser" );
 					exit;
 				} else {
