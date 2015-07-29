@@ -4,7 +4,7 @@
 	$conn = mysql_connect("localhost", "mroyball1", "mroyball1") or die("cannot connect");
 	mysql_select_db($db) or die("cannot select DB");
 	
-	
+	$customer
 	
 ?>
 
@@ -29,38 +29,7 @@
 		<div id="content">
 			<p> Page Content </p>
 			
-			<table>
-				<tr>
-					<th> Cart List</th>
-					<th> Price </th>
-				</tr>
-				
-				<?php 
-				session_start();
-				include_once("config.php")
-				
-				if(isset($_SESSION['order'])){
-					$_SESSION['order'] = array();
-					
-				}
-				
-				
-				
-				if(isset($_GET['order'])){
-					$order = array();
-					$total = 0;
-					
-				}
-				
-				
-				
-			</table>
 			
-			
-		
-			
-			
-		
 		</div>
 	</body>
 	

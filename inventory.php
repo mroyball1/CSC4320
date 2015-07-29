@@ -20,7 +20,8 @@
 		
 		<div id="nav">
 			<p> Navigation Bar </p>
-			<a href="menu.php"> Home </a>
+			<a href="menu.php"> Home </a> <br><br>
+			<a href="login.php">Customer Log In </a> <br><br>
 		</div>
 		
 		<div id="content">
@@ -45,7 +46,7 @@
 			
 				
 				?>
-				
+				<input type="hidden" name="username" value="<?php if(isset($_GET["username"])) echo $_GET["username"]; ?>">
 			</table>
 		</div>
 	</body>

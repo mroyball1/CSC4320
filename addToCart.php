@@ -24,7 +24,8 @@
 		
 		<div id="nav">
 			<p> Navigation Bar </p>
-			<a href="menu.php"> Home </a>
+			<a href="menu.php"> Home </a> <br><br>
+			<a href="login.php">Customer Log In </a>
 
 		</div>
 		
@@ -49,6 +50,7 @@
 				</table>
 				<input type="number" min="1" max="<?php echo $row["QTYONHAND"]; ?>" value="1" name="qtyOrdered">
 				<input type="hidden" name="itemNumber" value="<?php echo $productNum; ?>">
+				<input type="hidden" name="username" value="<?php echo $_POST["username"]; ?>" >
 				<input type="submit" value="Add to Cart">
 			</form>
 		</div>

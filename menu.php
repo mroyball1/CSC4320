@@ -27,7 +27,7 @@
 		
 		<div id="nav">
 			<p> Navigation Bar </p> <br>
-			<a href="inventory.php"> Search Inventory </a> <br><br>
+			<a href="inventory.php<?php if(isset($username)) echo "?username=".$username; ?>"> Search Inventory </a> <br><br>
 			<a href="login.php">Customer Log In </a> <br><br>
 			<a href="profile.php?username=<?php echo $username ?>"> Customer Profile </a>
 		</div>
