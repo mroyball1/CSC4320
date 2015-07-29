@@ -16,8 +16,8 @@
 	</head>
 	
 	<body>
-		<div id="header">
-			<p> Title Area </p>
+		<div class="header">
+			<h3> Title Area </h3>
 			<p> <?php echo "Welcome ".$username; ?> </p>
 			<form>
 				<input type="hidden" name="username">
@@ -25,14 +25,16 @@
 			</form>
 		</div>
 		
-		<div id="nav">
-			<p> Navigation Bar </p> <br>
-			<a href="inventory.php"> Search Inventory </a> <br><br>
-			<a href="login.php">Customer Log In </a> <br><br>
-			<a href="profile.php?username=<?php echo $username ?>"> Customer Profile </a>
+		<div id='nav'>
+			<ul>
+				<li class = "detail"><a href = "inventory.php">Search Inventory</a>
+				<li class='detail'><a href='profile.php?username=<?php echo $username ?>'><span>Customer Profile</span></a>
+				<li class='detail'><a href='login.php'><span>Login</span></a>
+				</li>
+			</ul>
 		</div>
 		
-		<div id="content">
+		<div class="content">
 			<p> Page Content </p>
 		</div>
 	</body>

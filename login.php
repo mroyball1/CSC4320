@@ -54,17 +54,17 @@
 	</head>
 	
 	<body>
-		<div id="header">
-			<p> Title Area </p>
+		<div class="header">
+			<h3> Title Area </h3>
 		</div>
 		
-		<div id="nav">
-			<p> Navigation Bar </p>
-			<a href="menu.php"> Home </a>
-
+		<div id='nav'>
+			<ul>
+				<li class = "detail"><a href = "menu.php">Home</a></li>
+			</ul>
 		</div>
 		
-		<div id="content">
+		<div class="content">
 			<p> Page Content </p>
 			<form action="login.php" method="POST">
 				<table>

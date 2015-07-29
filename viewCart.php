@@ -16,17 +16,17 @@
 	</head>
 	
 	<body>
-		<div id="header">
+		<div class="header">
 			<p> Title Area </p>
 		</div>
 		
-		<div id="nav">
-			<p> Navigation Bar </p>
-			<a href="menu.php"> Home </a>
-
+		<div id='nav'>
+			<ul>
+				<li class = "detail"><a href = "menu.php">Home</a></li>
+			</ul>
 		</div>
 		
-		<div id="content">
+		<div class="content">
 			<p> Page Content </p>
 				
 				<?php 
