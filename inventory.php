@@ -23,7 +23,7 @@
 		<div id="nav">
 			<ul>
 				<li class = "detail"><a href = "menu.php">Home</a></li>
-				<li class = "detail"><a href="login.php">Customer Log In </a> </li>
+				<li class = "detail"><a href="login.php">Login</a> </li>
 			</ul>
 		</div>
 		

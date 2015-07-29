@@ -3,6 +3,7 @@
     session_start();
     include_once("includes/functions.php");
 
+    // redirect to profile if user is already authenticated
     if (isset($_SESSION['username'])) {
         redirectTo("profile.php");
     }
@@ -85,7 +86,7 @@
 					</tr>
 					<tr>
 						<td>Enter Password: </td>
-						<td> <input type="text" name="password"> </td>
+						<td> <input type="password" name="password"> </td>
 					</tr>
 				</table>
 				<br>

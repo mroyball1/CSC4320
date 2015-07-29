@@ -1,7 +1,13 @@
 <?php
 
     session_start();
-include_once("includes/functions.php");
+
+    //redirect to the login if an unauthenticated user tries to access the profile page
+    if (!isset($_SESSION['username'])) {
+        redirectTo("login.php");
+    }
+
+    include_once("includes/functions.php");
 
 	//need a check to see if a username is passed, otherwise redirect to login.php
 	/*

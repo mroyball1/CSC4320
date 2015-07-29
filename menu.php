@@ -41,8 +41,22 @@
 		<div id="nav">
 			<ul>
 				<li class = "detail"><a href="inventory.php<?php if(isset($username)) echo "?username=".$username; ?>"> Search Inventory </a></li>
-				<li class='detail'><a href='profile.php?username=<?php echo $username ?>'><span>Customer Profile</span></a> </li>
-				<li class='detail'><a href='login.php'><span>Login</span></a></li>
+                <?php
+                if (isset($_SESSION['username'])) {
+                    echo "<li class='detail'><a href='profile.php?username=<?php echo $username ?>'><span>Customer Profile</span></a> </li>";
+                }
+                ?>
+
+
+                <?php
+                if (isset($_SESSION['username'])) {
+                    echo "<li class='detail'><a href='logout.php'><span>Logout</span></a></li>";
+                }
+                else {
+                    echo "<li class='detail'><a href='login.php'><span>Login</span></a></li>";
+                }
+                ?>
+
 			</ul>
 		</div>
 		
