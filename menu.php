@@ -6,6 +6,16 @@
 		$username = "";
 	}
 	//End Page Setup
+	
+	$db = "mroyball1";
+	$conn = mysql_connect("localhost", "mroyball1", "mroyball1") or die("cannot connect");
+	mysql_select_db($db) or die("cannot select DB");
+	
+	//CHECK FOR PAYMENT AND CHANGE DATABASE
+	if(isset($_POST["CCnumber"])) {
+		$query = "update ORDERS set STATUS=\"ORDERED\" where ORDERNUMBER = ".$_POST["orderNumber"].";";
+		$result = mysql_query($query);
+	}
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +26,7 @@
 	</head>
 	
 	<body>
-		<div id="header">
+		<div class="header">
 			<p> Title Area </p>
 			<p> <?php echo "Welcome ".$username; ?> </p>
 			<form>
@@ -26,13 +36,14 @@
 		</div>
 		
 		<div id="nav">
-			<p> Navigation Bar </p> <br>
-			<a href="inventory.php<?php if(isset($username)) echo "?username=".$username; ?>"> Search Inventory </a> <br><br>
-			<a href="login.php">Customer Log In </a> <br><br>
-			<a href="profile.php?username=<?php echo $username ?>"> Customer Profile </a>
+			<ul>
+				<li class = "detail"><a href="inventory.php<?php if(isset($username)) echo "?username=".$username; ?>"> Search Inventory </a></li>
+				<li class='detail'><a href='profile.php?username=<?php echo $username ?>'><span>Customer Profile</span></a> </li>
+				<li class='detail'><a href='login.php'><span>Login</span></a></li>
+			</ul>
 		</div>
 		
-		<div id="content">
+		<div class="content">
 			<p> Page Content </p>
 		</div>
 	</body>

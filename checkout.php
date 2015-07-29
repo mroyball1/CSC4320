@@ -1,3 +1,21 @@
+<?php
+
+	$orderNumber = $_POST["orderNumber"];
+	$customerNumber = $_POST["cuNumber"];
+	
+	$db = "mroyball1";
+	$conn = mysql_connect("localhost", "mroyball1", "mroyball1") or die("cannot connect");
+	mysql_select_db($db) or die("cannot select DB");
+
+	$query = "select sum(LINEPRICE) from LINEITEM where ORDERNUMBER = ".$orderNumber.";";
+	$result = mysql_query($query);
+	while ($row = mysql_fetch_assoc($result)) {
+		$totalPrice = $row["sum(LINEPRICE)"];
+	}
+	
+?>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,17 +24,38 @@
 	</head>
 	
 	<body>
-		<div id="header">
+		<div class="header">
 			<p> Title Area </p>
 		</div>
 		
 		<div id="nav">
-			<p> Navigation Bar </p>
-
+			<ul>
+				<li class = "detail"><a href = "menu.php">Home</a></li>
+			</ul>
 		</div>
 		
-		<div id="content">
-			<p> Page Content </p>
+		<div class="content">
+			<p> Checkout </p>
+			<p>Your total is: $<?php echo $totalPrice; ?> </p>
+			
+			<form action="menu.php" method="POST">
+				<table>
+					<tr>
+						<td>Enter Credit Card Number: </td>
+						<td><input type="text" name="CCnumber"></td>
+					</tr>
+					<tr>
+						<td>Enter CCV: </td>
+						<td><input type="text" name="CCV"></td>
+					</tr>
+					<tr>
+						<td>Enter Billing Zip Code:</td>
+						<td><input type="text" name="billZip"></td>
+					</tr>
+				</table>
+				<input type="hidden" name="orderNumber" value=<?php echo $orderNumber ?>>
+				<input type="submit" value="Confirm Order">
+			</form>
 		</div>
 	</body>
 	

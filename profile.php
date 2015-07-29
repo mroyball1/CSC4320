@@ -50,17 +50,17 @@
 	</head>
 	
 	<body>
-		<div id="header">
+		<div class="header">
 			<p> Title Area </p>
 		</div>
 		
 		<div id="nav">
-			<p> Navigation Bar </p>
-			<a href="menu.php"> Home </a>
-
+			<ul>
+				<li class = "detail"><a href = "menu.php">Home</a></li>
+			</ul>
 		</div>
 		
-		<div id="content">
+		<div class="content">
 			<p> Page Content </p>
 			<form action="profile.php" method="POST">
 				Update Customer Information: <br> <br>
