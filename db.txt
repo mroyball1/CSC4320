@@ -5,42 +5,42 @@ drop table if exists USER;
 drop table if exists PAYMENT;
 
 create table ORDERS (
-ORDERNUMBER varchar(20),
-TOTALPRICE varchar(5),
-CUSTOMERNUMBER varchar(20),
+ORDERNUMBER int(20) not null auto_increment,
+TOTALPRICE decimal(5,2),
+CUSTOMERNUMBER int(20),
 PAYMENT varchar(2),
 SHIPTO varchar(40),
 constraint pk_orders primary key (ORDERNUMBER)
 );
 
 create table LINEITEM (
-ORDERNUMBER varchar(20),
-ITEMNUMBER varchar(20),
-QTYORDERED varchar(3),
-LINEPRICE varchar(5),
+ORDERNUMBER int(20) not null,
+ITEMNUMBER int(20) not null,
+QTYORDERED int(3),
+LINEPRICE decimal(5,2),
 constraint pk_lineitem primary key (ORDERNUMBER, ITEMNUMBER)
 );
 
 create table INVENTORYITEM(
-ITEMNUMBER varchar(20),
+ITEMNUMBER int(20) not null auto_increment,
 NAME varchar(20),
-UNITPRICE varchar(5),
-QTYONHAND varchar(4),
+UNITPRICE decimal(5,2),
+QTYONHAND int(4),
 constraint pk_inventoryitem primary key (ITEMNUMBER)
 );
 
 create table USER(
-CUSTOMERNUMBER varchar(20),
+CUSTOMERNUMBER int(20) not null auto_increment,
 NAME varchar(20),
 BILLTO varchar(40),
-USERNAME varchar(20),
+USERNAME varchar(20) unique,
 PASSWORD varchar(20),
 constraint pk_user primary key (CUSTOMERNUMBER)
 );
 
 create table PAYMENT (
-CUSTOMERNUMBER varchar(20),
-CARDINDEX varchar(2),
+CUSTOMERNUMBER int(20) not null,
+CARDINDEX int(20),
 NAMEONCARD varchar(20),
 CCNUMBER varchar(16),
 CCV varchar(4),
@@ -49,12 +49,27 @@ constraint pk_payment primary key (CUSTOMERNUMBER, CARDINDEX)
 );
 
 
-
 insert into USER values("1", "Merrick", "123 Murica Dr", "mroyball1", "mroyball1");
 select NAME, BILLTO, USERNAME, PASSWORD from USER where USERNAME like 'mroyball1';
 update USER set USERNAME = 'mroyball2' where USERNAME like 'mroyball1';
 
-insert into INVENTORYITEM values("1", "Intel Core i7-4790K", "$339", "4");
-insert into INVENTORYITEM values("2", "Intel Core i5-4690K", "$239", "7");
-insert into INVENTORYITEM values("3", "AMD FX-6300", "$109", "2");
-insert into INVENTORYITEM values("4", "AMD FX-8350", "$174", "5");
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Intel Core i7-4790K", 339, 4);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Intel Core i5-4690K", 239, 7);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("AMD FX-6300", 109, 2);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("AMD FX-8350", 174, 5);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Nexus 6 32GB", 499, 5);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Nexus 6 64GB", 549, 9);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Nexus 9 16GB", 399, 5);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Google Chromecast", 29.99, 50);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Kindle Paperwhite", 119.00, 5);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Samsung Galaxy Tab 4", 135.99, 54);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Apple iPad mini", 227.88, 81);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Netgear Nighthawk", 171.67, 37);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Dell E2414Hr 24-Inch", 139.99, 26);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Samsung Galaxy Tab 4", 135.99, 54);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Macbook Pro 13.3", 999.99, 165);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Macbook Pro 15.4", 1899.99, 195);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Sony Playstation 4", 400, 195);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Microsoft Xbox One, 399.99, 195);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Fitbit Charge", 149.99, 195);
+insert into INVENTORYITEM (NAME, UNITPRICE, QTYONHAND) values("Jawbone UP24", 59.99, 195);

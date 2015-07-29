@@ -33,11 +33,11 @@
 				</tr>
 				
 				<?php
-				$query = "select NAME, UNITPRICE, QTYONHAND from INVENTORYITEM;";
+				$query = "select * from INVENTORYITEM;";
 				$result = mysql_query($query);
 				while ($row = mysql_fetch_assoc($result)) {
 					echo "<tr>";
-					echo "<td>".$row["NAME"]."</td>";
+					echo "<td><a href='addToCart.php?productName=\"".$row["ITEMNUMBER"]."\"'>".$row["NAME"]."</a></td>";
 					echo "<td>".$row["UNITPRICE"]."</td>";
 					echo "<td>".$row["QTYONHAND"]."</td>";
 					echo "</tr>";
