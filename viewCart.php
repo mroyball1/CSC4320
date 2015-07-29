@@ -43,15 +43,35 @@
 					echo '<table align="left"
 					cellspacing="5" cellpadding="8"
 					
-					<tr><td align="left"><b> NAME</b><td>//printing headers on the table
-					<td align="left"><b> UNITPRICE</b><td>
-					<td align="left"><b> QYTONHAND</b><td>
-					<td align="left"><b> ITEMNUMBER</b><td>
+					//printing headers on the table
+					<tr><td align="left"><b> NAME</b></td>
+					<td align="left"><b> UNITPRICE</b></td>
+					<td align="left"><b> QYTONHAND</b></td>
+					<td align="left"><b> ITEMNUMBER</b></td>
+					</tr>';
 					
+					//cycle through rows and display table
+					//mmysqli_fetch_array returns one row of data until there is no more data
+					while($row = mysqli_fetch_array($response)){
+						
+						echo '<tr><td align="left">' .
+						$row['NAME'] . '</td><td align="left">' .
+						$row['UNITPRICE'] . '</td><td align="left">' .
+						$row['QYTONHAND'] . '</td><td align="left">' .
+						$row['ITEMNUMBER'] . '</td><td align="left">';
+						
+						//close everything
+						echo '</tr>';
+					}
+					echo '</table>';
+				} else{  
+					echo "Error with database<br />";
+					echo mysqli_error($db)
+				
 				}
 				
-				
-		
+		//close connection to the database
+		mysqli_close($db);
 			
 			
 		
